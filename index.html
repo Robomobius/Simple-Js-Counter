@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Counter - Robomobius</title>
+		<link rel="stylesheet" href="/fonts.css" async>
+		<link rel="stylesheet" href="counter.css" async>
+		
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+		<link rel="manifest" href="/favicon/site.webmanifest">
+		<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+		
+	</head>
+	<body style="font-family: SudburyBasin">
+		<div class="contentbox">
+			<h2 id="text">Press the button or a key to count.</h2>
+			<input type="number" placeholder="Goal" id="maxInputBox"></input>
+			<button id="setButton" onclick="updateMaxNumber(maxInput.value)">Set</button>
+			<div class="logobox">
+				<img style="display: none" class="logoImage" id="logoImage">
+			</div>
+			<h1 id="numberText" class="numbertext">0</h1>
+			<div class="progbarcontainer">
+				<div class="progbarinner" id="progbar">0</div>
+			</div>
+			<br>
+			<button id="b1" onclick="countUp()">Count</button>
+			<button id="b2" onclick="reset()">Reset</button><br>
+			<button id="b3" onclick="controls()">Open Controls</button>
+		</div>
+	</body>
+	<script src="mainpage.js" async></script>
+</html>

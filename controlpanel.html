@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="counter.css">
+    <link rel="stylesheet" href="/fonts.css">
+    <meta charset="UTF-8" />
+    <title>Control Panel</title>
+    <link rel="stylesheet" href="/libraries/Coloris-0.24.0/dist/coloris.min.css"/>
+    <script src="/libraries/Coloris-0.24.0/dist/coloris.min.js"></script>
+</head>
+<body style="display: block">
+    <h1>Counter control panel</h1>
+    Goal: 
+	<input type="number" placeholder="Goal" id="maxInputBox"></input>
+	<button id="setButton" onclick="opener.updateMaxNumber(maxInputChild.value)">Set</button>
+    <br> Set Number:
+    <input type="number" id="numInputBox"></input>
+    <button onclick="opener.setNumber(numInputChild.value)">Set</button>
+    <br>
+    <button onclick="opener.countUp()" id="countUp">Count Up</button>
+    <button onclick="opener.countDown()" id="countDown">Count Down</button>
+    <button onclick="opener.reset()" id="reset">Reset</button><br>
+	<details>
+		<summary>Colours</summary>
+    	Background Colour:
+    	<input style="all: revert" type="text" data-coloris id="bgcolour" onchange="opener.setBackground(this.value)"/>
+    	<br> Border Colour:
+    	<input style="all: revert" type="text" data-coloris id="bordercolour" onchange="opener.setBorder(this.value)"/>
+		<br> Text Colour:
+    	<input style="all: revert" type="text" data-coloris id="textcolour" onchange="opener.setTextCol(this.value)"/>
+    </details>
+	<details>
+		<summary>Images</summary>
+		Background image: <input type="file" id="bgimage" name="bgimage" accept="image/*">
+		<button onclick="opener.submitBgImage(bgImageInput.files[0])">Submit Image</button><br>
+		Logo image: <input type="file" id="logoimage" name="logoimage" accept="image/*" onchange="opener.submitLogoImage(logoImageInput.files[0])">
+		Show Logo: <input type="checkbox" onchange="opener.drawLogo(this.checked)" id="checkbox">
+	</details>
+	<details>
+		<summary>Style</summary>
+		Font: <select id="fontselect" onchange="opener.changefont(this.value)">
+			<option value="SudburyBasin">Sudbury Basin</option>
+			<option value="SudburyBasin3d">Sudbury Basin 3D</option>
+			<option value="Iomanoid">Iomanoid</option>
+			<option value="Polya">Polya</option>
+			<option value="InsaneHours2">Insane Hours 2</option>
+			<option value="JacquardaBastarda9">Jacquarda Bastarda 9</option>
+			<option value="PlasticBag">Plastic Bag</option>
+			<option value="Polygons">Polygons</option>
+			<option value="Rubik">Rubik</option>
+			<option value="Jersey25Charted">Jersey 25 Charted</option>
+			<option value="Jersey10">Jersey 10</option>
+			<option value="Arial">Arial</option>
+			<option value="Verdana">Verdana</option>
+			<option value="Tahoma">Tahoma</option>
+			<option value="Trebuchet MS">Trebuchet MS</option>
+			<option value="Times New Roman">Times New Roman</option>
+			<option value="Georgia">Georgia </option>
+			<option value="Garamond">Garamond </option>
+			<option value="Courier New">Courier New</option>
+			<option value="Brush Script MT">Brush Script MT</option>
+		</select><br>
+		<button onclick="opener.document.body.style.background = 'radial-gradient(circle, var(--background) 50%, var(--border) 300%)'">Reset Background</button><br>
+		<button onclick="opener.resetstyle(); document.getElementById('checkbox').checked = false;">Reset All Styles</button>
+	</details>
+</body>
+<script>
+	var maxInputChild = document.getElementById("maxInputBox");
+    var numInputChild = document.getElementById("numInputBox");
+	var bgImageInput = document.getElementById("bgimage");
+	var logoImageInput = document.getElementById("logoimage");
+	document.getElementById("fontselect").value = opener.document.body.style.fontFamily;
+    setInterval(tick, 1); 
+    function tick() {
+        if (opener.closed){
+            window.close;
+        }
+    }
+</script>
+</html>
